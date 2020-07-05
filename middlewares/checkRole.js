@@ -9,8 +9,6 @@ module.exports = (requiredRole) => {
       attributes: ['code'],
     })
 
-    console.log('currentUserRole.code')
-    console.log(currentUserRole.code)
     if (currentUserRole.code !== requiredRole) {
       return res.status(401).end()
     } else {
