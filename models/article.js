@@ -9,12 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // this.userId = this.belongsTo(models.User, {
-      //   foreignKey: {
-      //     name: 'user_id',
-      //   },
-      //   allowNull: false,
-      // })
+      this.belongsTo(models.User, { foreignKey: 'user_id', as: 'author' })
     }
   }
   Article.init(
@@ -31,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         field: 'user_id',
         onDelete: 'CASCADE',
-        allowNull: false,
+        // allowNull: false,
         references: {
           model: 'user',
           key: 'id',
